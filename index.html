@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Maître Patrick Tacet — Avocat, Médiateur, Enseignant | Barreau de Laon</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#1c2e42;
+    --navy-dark:#12202f;
+    --gold:#a9824c;
+    --gold-light:#c9a877;
+    --cream:#faf7f2;
+    --paper:#f3efe7;
+    --text:#2c2c2c;
+    --text-light:#5a5f66;
+    --border:#e2ddd2;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Inter',sans-serif;
+    color:var(--text);
+    background:var(--cream);
+    line-height:1.65;
+    font-weight:300;
+  }
+  h1,h2,h3,h4{font-family:'Playfair Display',serif;font-weight:600;color:var(--navy);}
+  a{text-decoration:none;color:inherit;}
+  img{max-width:100%;display:block;}
+  .container{max-width:1140px;margin:0 auto;padding:0 24px;}
+  .eyebrow{
+    font-size:.75rem;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--gold);font-weight:600;margin-bottom:14px;display:block;
+  }
+  .btn{
+    display:inline-block;padding:14px 32px;border-radius:2px;
+    font-size:.85rem;letter-spacing:.06em;text-transform:uppercase;font-weight:500;
+    transition:all .25s ease;border:1px solid transparent;
+  }
+  .btn-primary{background:var(--gold);color:#fff;}
+  .btn-primary:hover{background:#8f6c3c;}
+  .btn-outline{border-color:rgba(255,255,255,.5);color:#fff;}
+  .btn-outline:hover{background:rgba(255,255,255,.12);}
+  .btn-outline-navy{border-color:var(--navy);color:var(--navy);}
+  .btn-outline-navy:hover{background:var(--navy);color:#fff;}
+
+  /* NAV */
+  header{
+    position:fixed;top:0;left:0;right:0;z-index:100;
+    background:rgba(28,46,66,.97);backdrop-filter:blur(6px);
+    border-bottom:1px solid rgba(255,255,255,.08);
+  }
+  nav{display:flex;align-items:center;justify-content:space-between;padding:18px 24px;max-width:1140px;margin:0 auto;}
+  .logo{font-family:'Playfair Display',serif;color:#fff;font-size:1.15rem;letter-spacing:.02em;}
+  .logo span{color:var(--gold-light);}
+  .nav-links{display:flex;gap:30px;list-style:none;}
+  .nav-links a{color:#e8e6e0;font-size:.82rem;letter-spacing:.04em;text-transform:uppercase;font-weight:400;transition:color .2s;}
+  .nav-links a:hover{color:var(--gold-light);}
+  .nav-cta{display:none;}
+  .burger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;}
+  .burger span{width:24px;height:2px;background:#fff;}
+
+  /* HERO */
+  .hero{
+    min-height:92vh;display:flex;align-items:center;position:relative;
+    background:linear-gradient(120deg, rgba(18,32,47,.88), rgba(28,46,66,.72)),
+      url('https://images.unsplash.com/photo-1521791136064-7986c2920216?q=80&w=1600&auto=format&fit=crop') center/cover no-repeat;
+    padding-top:80px;
+  }
+  .hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:60px;align-items:center;width:100%;}
+  .hero h1{color:#fff;font-size:clamp(2.1rem,4vw,3.2rem);line-height:1.15;margin-bottom:18px;}
+  .hero h1 em{font-style:italic;color:var(--gold-light);}
+  .hero p.lead{color:#e4e1d8;font-size:1.05rem;font-weight:300;max-width:520px;margin-bottom:32px;}
+  .hero-tags{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:34px;}
+  .hero-tags span{
+    border:1px solid rgba(255,255,255,.35);color:#f2f0ea;font-size:.75rem;
+    letter-spacing:.06em;text-transform:uppercase;padding:8px 16px;border-radius:20px;
+  }
+  .hero-actions{display:flex;gap:16px;flex-wrap:wrap;}
+  .hero-portrait{
+    width:100%;aspect-ratio:3/4;border-radius:4px;overflow:hidden;
+    box-shadow:0 30px 60px rgba(0,0,0,.35);border:6px solid rgba(255,255,255,.08);
+  }
+  .hero-portrait img{width:100%;height:100%;object-fit:cover;}
+  .photo-note{position:absolute;bottom:16px;left:16px;background:rgba(0,0,0,.5);color:#fff;font-size:.65rem;padding:4px 10px;border-radius:3px;letter-spacing:.03em;}
+
+  /* CHIFFRES CLES */
+  .stats{background:var(--navy-dark);padding:44px 0;}
+  .stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;text-align:center;}
+  .stats-grid div h3{color:var(--gold-light);font-size:2.1rem;margin-bottom:6px;}
+  .stats-grid div p{color:#cfd3d8;font-size:.8rem;letter-spacing:.03em;text-transform:uppercase;}
+
+  section{padding:100px 0;}
+  .section-head{max-width:640px;margin-bottom:56px;}
+  .section-head.center{margin-left:auto;margin-right:auto;text-align:center;}
+  .section-head h2{font-size:clamp(1.7rem,3vw,2.3rem);}
+  .section-head p{color:var(--text-light);margin-top:14px;font-size:1rem;}
+
+  /* PRESENTATION */
+  .presentation{background:#fff;}
+  .presentation-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:70px;align-items:start;}
+  .presentation-img{border-radius:4px;overflow:hidden;box-shadow:0 20px 40px rgba(28,46,66,.12);}
+  .presentation-img img{width:100%;height:520px;object-fit:cover;}
+  .presentation-text p{margin-bottom:20px;color:#3b3f45;font-size:1.02rem;}
+  .quote{
+    border-left:3px solid var(--gold);padding:6px 0 6px 24px;margin:30px 0;
+    font-family:'Playfair Display',serif;font-style:italic;color:var(--navy);font-size:1.15rem;
+  }
+  .signature{font-family:'Playfair Display',serif;font-style:italic;color:var(--navy);margin-top:26px;font-size:1.05rem;}
+
+  /* TRIPLE CASQUETTE */
+  .roles{background:var(--paper);}
+  .roles-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:30px;}
+  .role-card{
+    background:#fff;padding:40px 32px;border-radius:4px;border:1px solid var(--border);
+    transition:transform .25s ease, box-shadow .25s ease;
+  }
+  .role-card:hover{transform:translateY(-6px);box-shadow:0 20px 40px rgba(28,46,66,.1);}
+  .role-num{
+    width:44px;height:44px;border-radius:50%;border:1px solid var(--gold);
+    color:var(--gold);display:flex;align-items:center;justify-content:center;
+    font-family:'Playfair Display',serif;font-size:1.1rem;margin-bottom:22px;
+  }
+  .role-card h3{font-size:1.25rem;margin-bottom:12px;}
+  .role-card p{color:var(--text-light);font-size:.92rem;}
+
+  /* DOMAINES */
+  .domaines{background:#fff;}
+  .domaines-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:1px solid var(--border);border-radius:4px;overflow:hidden;}
+  .domaine-card{padding:44px 34px;border-right:1px solid var(--border);}
+  .domaine-card:last-child{border-right:none;}
+  .domaine-card .tag{color:var(--gold);font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;font-weight:600;}
+  .domaine-card h3{margin:14px 0 16px;font-size:1.3rem;}
+  .domaine-card p{color:var(--text-light);font-size:.92rem;margin-bottom:18px;}
+  .domaine-card ul{list-style:none;font-size:.85rem;color:var(--text-light);}
+  .domaine-card ul li{padding:5px 0;border-top:1px solid var(--border);}
+  .domaine-card ul li:first-child{border-top:none;}
+
+  /* MEDIATION BAND */
+  .mediation{
+    background:linear-gradient(120deg, rgba(18,32,47,.9), rgba(28,46,66,.82)),
+    url('https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=80&w=1600&auto=format&fit=crop') center/cover;
+    color:#fff;padding:110px 0;
+  }
+  .mediation-inner{max-width:700px;}
+  .mediation .eyebrow{color:var(--gold-light);}
+  .mediation h2{color:#fff;font-size:clamp(1.7rem,3vw,2.3rem);margin-bottom:22px;}
+  .mediation p{color:#dedad0;font-size:1.02rem;margin-bottom:18px;}
+  .mediation .quote{border-left-color:var(--gold-light);color:#f3efe7;}
+
+  /* PROCESS */
+  .process{background:var(--paper);}
+  .process-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:40px;position:relative;}
+  .process-step{text-align:left;}
+  .process-step .step-num{font-family:'Playfair Display',serif;font-size:2.6rem;color:var(--gold-light);margin-bottom:10px;}
+  .process-step h3{font-size:1.15rem;margin-bottom:10px;}
+  .process-step p{color:var(--text-light);font-size:.9rem;}
+
+  /* HONORAIRES */
+  .honoraires{background:#fff;}
+  .honoraires-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:26px;}
+  .honoraires-card{background:var(--navy);color:#fff;padding:38px 30px;border-radius:4px;}
+  .honoraires-card:nth-child(2){background:var(--gold);}
+  .honoraires-card h3{color:#fff;font-size:1.1rem;margin-bottom:14px;}
+  .honoraires-card p{color:rgba(255,255,255,.85);font-size:.88rem;}
+  .honoraires-note{margin-top:34px;padding:22px 26px;background:var(--paper);border-left:3px solid var(--gold);font-size:.9rem;color:var(--text-light);border-radius:2px;}
+
+  /* FAQ */
+  .faq{background:var(--paper);}
+  .faq-list{max-width:820px;}
+  .faq-item{border-bottom:1px solid var(--border);padding:24px 0;}
+  .faq-item h4{font-size:1.02rem;color:var(--navy);margin-bottom:10px;font-family:'Inter',sans-serif;font-weight:600;}
+  .faq-item p{color:var(--text-light);font-size:.92rem;}
+
+  /* ARTICLES */
+  .articles{background:#fff;}
+  .articles-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:30px;}
+  .article-card{border:1px solid var(--border);border-radius:4px;overflow:hidden;}
+  .article-card img{height:180px;object-fit:cover;}
+  .article-card .body{padding:22px 24px;}
+  .article-card .date{font-size:.72rem;color:var(--gold);text-transform:uppercase;letter-spacing:.06em;}
+  .article-card h4{font-size:1.02rem;margin:10px 0;color:var(--navy);}
+  .article-card p{color:var(--text-light);font-size:.85rem;}
+
+  /* CONTACT */
+  .contact{background:var(--navy);color:#fff;}
+  .contact-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:60px;}
+  .contact-info h2{color:#fff;font-size:clamp(1.6rem,3vw,2.1rem);margin-bottom:20px;}
+  .contact-info p{color:#c8ccd2;font-size:.95rem;margin-bottom:26px;}
+  .contact-detail{display:flex;gap:14px;margin-bottom:20px;font-size:.92rem;color:#e4e6e9;}
+  .contact-detail strong{color:var(--gold-light);display:block;font-size:.75rem;text-transform:uppercase;letter-spacing:.05em;margin-bottom:3px;}
+  .map-placeholder{
+    margin-top:30px;height:180px;border-radius:4px;background:rgba(255,255,255,.06);
+    border:1px dashed rgba(255,255,255,.25);display:flex;align-items:center;justify-content:center;
+    color:#9aa1a8;font-size:.8rem;
+  }
+  .form-card{background:#fff;border-radius:4px;padding:40px;color:var(--text);}
+  .form-row{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:18px;}
+  .form-group{display:flex;flex-direction:column;gap:6px;}
+  .form-group.full{grid-column:1/-1;}
+  label{font-size:.75rem;text-transform:uppercase;letter-spacing:.05em;color:var(--text-light);}
+  input,select,textarea{
+    border:1px solid var(--border);padding:11px 14px;font-family:'Inter',sans-serif;font-size:.9rem;
+    border-radius:2px;background:var(--cream);color:var(--text);
+  }
+  textarea{resize:vertical;min-height:110px;}
+  .rgpd{font-size:.72rem;color:var(--text-light);margin:14px 0 20px;display:flex;gap:8px;align-items:flex-start;}
+  .form-submit{width:100%;background:var(--gold);color:#fff;border:none;padding:15px;font-size:.85rem;letter-spacing:.06em;text-transform:uppercase;border-radius:2px;cursor:pointer;}
+
+  footer{background:var(--navy-dark);color:#9aa1a8;padding:50px 0 26px;}
+  .footer-grid{display:flex;justify-content:space-between;flex-wrap:wrap;gap:30px;margin-bottom:36px;}
+  .footer-col h4{color:#fff;font-family:'Inter',sans-serif;font-size:.85rem;text-transform:uppercase;letter-spacing:.05em;margin-bottom:16px;}
+  .footer-col a{display:block;color:#9aa1a8;font-size:.85rem;margin-bottom:10px;}
+  .footer-col a:hover{color:var(--gold-light);}
+  .footer-bottom{border-top:1px solid rgba(255,255,255,.08);padding-top:22px;font-size:.75rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+
+  .mockup-banner{
+    background:var(--gold);color:#fff;text-align:center;font-size:.78rem;padding:9px 16px;
+    letter-spacing:.02em;
+  }
+
+  @media (max-width:900px){
+    .nav-links{display:none;}
+    .burger{display:flex;}
+    .hero-grid{grid-template-columns:1fr;}
+    .hero-portrait{max-width:320px;margin:0 auto;}
+    .presentation-grid, .roles-grid, .domaines-grid, .process-grid, .honoraires-grid, .articles-grid, .contact-grid{
+      grid-template-columns:1fr;
+    }
+    .domaine-card{border-right:none;border-bottom:1px solid var(--border);}
+    .stats-grid{grid-template-columns:repeat(2,1fr);gap:30px;}
+    section{padding:70px 0;}
+    .form-row{grid-template-columns:1fr;}
+  }
+</style>
+</head>
+<body>
+
+<div class="mockup-banner">MAQUETTE — Aperçu de travail (photos et textes provisoires à valider avant mise en ligne)</div>
+
+<header>
+  <nav>
+    <a href="#accueil" class="logo">Patrick <span>Tacet</span></a>
+    <ul class="nav-links">
+      <li><a href="#presentation">Qui suis-je</a></li>
+      <li><a href="#domaines">Domaines d'activité</a></li>
+      <li><a href="#mediation">Médiation</a></li>
+      <li><a href="#honoraires">Honoraires</a></li>
+      <li><a href="#articles">Actualités</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a href="#contact" class="btn btn-outline nav-cta">Prendre rendez-vous</a>
+    <button class="burger" aria-label="menu"><span></span><span></span><span></span></button>
+  </nav>
+</header>
+
+<section id="accueil" class="hero">
+  <div class="container hero-grid">
+    <div>
+      <span class="eyebrow" style="color:var(--gold-light)">Barreau de Laon — Bâtonnier 2026/2028</span>
+      <h1>Avocat, médiateur et enseignant, <em>à vos côtés</em> pour construire des solutions durables</h1>
+      <p class="lead">J'accompagne mes clients en droit pénal, droit de la famille et droit du travail, avec une approche à la fois rigoureuse et humaine — y compris par la voie amiable de la médiation.</p>
+      <div class="hero-tags">
+        <span>Droit pénal</span>
+        <span>Droit de la famille</span>
+        <span>Droit du travail</span>
+        <span>Médiation</span>
+      </div>
+      <div class="hero-actions">
+        <a href="#contact" class="btn btn-primary">Prendre rendez-vous</a>
+        <a href="#presentation" class="btn btn-outline">Découvrir mon parcours</a>
+      </div>
+    </div>
+    <div style="position:relative;">
+      <div class="hero-portrait">
+        <img src="https://images.unsplash.com/photo-1556157382-97eda2d62296?q=80&w=900&auto=format&fit=crop" alt="Portrait professionnel — à remplacer par une photo de Maître Tacet">
+      </div>
+      <span class="photo-note">Photo à remplacer</span>
+    </div>
+  </div>
+</section>
+
+<div class="stats">
+  <div class="container stats-grid">
+    <div><h3>1997</h3><p>Doctorat en droit</p></div>
+    <div><h3>2018</h3><p>Inscrit au Barreau de Laon</p></div>
+    <div><h3>3</h3><p>Domaines d'expertise</p></div>
+    <div><h3>2026–2028</h3><p>Bâtonnier du Barreau de Laon</p></div>
+  </div>
+</div>
+
+<section id="presentation" class="presentation">
+  <div class="container presentation-grid">
+    <div class="presentation-img">
+      <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?q=80&w=900&auto=format&fit=crop" alt="Maître Patrick Tacet — photo à remplacer">
+    </div>
+    <div class="presentation-text">
+      <span class="eyebrow">Qui suis-je</span>
+      <h2 style="margin-bottom:24px;">Une pratique du droit nourrie par l'enseignement et la médiation</h2>
+      <p>Je suis avocat au Barreau de Laon depuis 2018, où j'interviens principalement en droit pénal, droit de la famille et droit du travail. Je conseille et défends mes clients devant l'ensemble des juridictions civiles et pénales, en privilégiant toujours une relation de confiance et de proximité.</p>
+      <p>Titulaire d'un Doctorat en Droit obtenu en 1997 à l'Université Paris VIII, j'enseigne aujourd'hui le droit pénal spécial ainsi que le droit des personnes et de la famille à l'IUT de l'Aisne (Université Picardie Jules Verne). Cette activité d'enseignement nourrit ma pratique quotidienne : elle m'oblige à une rigueur constante et à une pédagogie que je m'efforce de transmettre à mes clients.</p>
+      <p>Formé à la médiation (D.U. Médiation IFOMENE, 2025), j'accompagne également les parties vers une résolution amiable, durable et librement consentie de leurs différends, lorsque cette voie est possible et souhaitable.</p>
+      <div class="quote">« Un engagement humain, à vos côtés, pour construire des solutions durables et librement consenties. »</div>
+      <p>Je suis par ailleurs Bâtonnier du Barreau de Laon pour la période 2026–2028, une responsabilité qui témoigne de mon implication au service de la profession et de ses valeurs.</p>
+      <p class="signature">— Patrick Tacet</p>
+    </div>
+  </div>
+</section>
+
+<section class="roles">
+  <div class="container">
+    <div class="section-head center">
+      <span class="eyebrow">Trois expertises, une même exigence</span>
+      <h2>Avocat, médiateur, enseignant</h2>
+      <p>Une identité professionnelle complète, au service d'un accompagnement à la fois technique et humain.</p>
+    </div>
+    <div class="roles-grid">
+      <div class="role-card">
+        <div class="role-num">01</div>
+        <h3>Avocat</h3>
+        <p>Conseil et défense devant toutes les juridictions civiles et pénales, en droit pénal, droit de la famille et droit du travail.</p>
+      </div>
+      <div class="role-card">
+        <div class="role-num">02</div>
+        <h3>Médiateur</h3>
+        <p>Formé à la médiation (D.U. IFOMENE, 2025), j'accompagne les parties vers une résolution amiable et librement consentie de leurs conflits.</p>
+      </div>
+      <div class="role-card">
+        <div class="role-num">03</div>
+        <h3>Enseignant</h3>
+        <p>J'enseigne le droit pénal spécial et le droit des personnes et de la famille à l'IUT de l'Aisne, Université Picardie Jules Verne.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="domaines" class="domaines">
+  <div class="container">
+    <div class="section-head center">
+      <span class="eyebrow">Domaines d'activité</span>
+      <h2>Une expertise concentrée sur trois matières</h2>
+    </div>
+    <div class="domaines-grid">
+      <div class="domaine-card">
+        <span class="tag">Défense &amp; Conseil</span>
+        <h3>Droit pénal</h3>
+        <p>J'assiste les victimes comme les personnes mises en cause dans le cadre des infractions pénales contre les personnes et contre les biens.</p>
+        <ul>
+          <li>Tribunal de police</li>
+          <li>Tribunal correctionnel</li>
+          <li>Cour criminelle départementale</li>
+          <li>Cour d'Assises</li>
+        </ul>
+      </div>
+      <div class="domaine-card">
+        <span class="tag">Accompagnement</span>
+        <h3>Droit des personnes &amp; de la famille</h3>
+        <p>J'assiste et défends les personnes dans toute procédure familiale, en recherchant un consensus parental lorsque cela est possible.</p>
+        <ul>
+          <li>Séparation, divorce</li>
+          <li>Adoption</li>
+          <li>Mesures de protection</li>
+          <li>Juge aux affaires familiales</li>
+        </ul>
+      </div>
+      <div class="domaine-card">
+        <span class="tag">Conseil &amp; Défense</span>
+        <h3>Droit du travail</h3>
+        <p>J'assiste le salarié comme l'employeur à chaque étape du contrat de travail, en conseil comme en contentieux.</p>
+        <ul>
+          <li>Recrutement</li>
+          <li>Exécution du contrat</li>
+          <li>Rupture du contrat</li>
+          <li>Conseil de prud'hommes</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="mediation" class="mediation">
+  <div class="container mediation-inner">
+    <span class="eyebrow">Alternative au procès</span>
+    <h2>La médiation, une voie de dialogue et d'apaisement</h2>
+    <p>La médiation permet aux parties de renouer le dialogue en présence d'un tiers impartial, pour construire ensemble une solution librement consentie.</p>
+    <p>J'interviens en qualité de médiateur dans un cadre propice à l'apaisement des tensions et à la préservation des relations, notamment lorsque les parties sont amenées à se revoir : relations familiales, relations de travail, milieu hospitalier, copropriétés...</p>
+    <div class="quote">Une médiation judiciaire ou conventionnelle, adaptée à chaque situation.</div>
+    <a href="#contact" class="btn btn-outline" style="margin-top:10px;">Échanger sur ma situation</a>
+  </div>
+</section>
+
+<section class="process">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Ma méthode</span>
+      <h2>Un accompagnement en trois étapes</h2>
+    </div>
+    <div class="process-grid">
+      <div class="process-step">
+        <div class="step-num">01</div>
+        <h3>Premier échange</h3>
+        <p>Nous prenons le temps d'un premier rendez-vous pour comprendre votre situation, vos enjeux et vos attentes.</p>
+      </div>
+      <div class="process-step">
+        <div class="step-num">02</div>
+        <h3>Analyse &amp; stratégie</h3>
+        <p>J'étudie votre dossier et vous propose une stratégie claire, qu'elle soit contentieuse ou amiable.</p>
+      </div>
+      <div class="process-step">
+        <div class="step-num">03</div>
+        <h3>Accompagnement</h3>
+        <p>Je vous représente et vous conseille jusqu'à la résolution de votre affaire, avec des points d'étape réguliers.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="honoraires" class="honoraires">
+  <div class="container">
+    <div class="section-head center">
+      <span class="eyebrow">Transparence</span>
+      <h2>Honoraires &amp; conditions d'intervention</h2>
+      <p>Les honoraires sont fixés en toute transparence, en accord avec le client, et font l'objet d'une convention d'honoraires.</p>
+    </div>
+    <div class="honoraires-grid">
+      <div class="honoraires-card">
+        <h3>Convention d'honoraires</h3>
+        <p>Un honoraire de résultat peut être prévu par la convention. À titre d'exemple, un honoraire de 10 % des sommes obtenues est appliqué en matière prud'homale.</p>
+      </div>
+      <div class="honoraires-card">
+        <h3>Protection juridique</h3>
+        <p>Les honoraires du cabinet peuvent être pris en charge, en tout ou partie, par votre assurance de protection juridique (habitation, automobile, carte bancaire...).</p>
+      </div>
+      <div class="honoraires-card">
+        <h3>Aide juridictionnelle</h3>
+        <p>Le cabinet vous accompagne dans l'évaluation préalable des conditions d'obtention de l'aide juridictionnelle, selon vos ressources et la nature du litige.</p>
+      </div>
+    </div>
+    <div class="honoraires-note">La garantie de protection juridique ne s'applique que si le contrat d'assurance a été souscrit avant la survenance du sinistre. Lorsque le barème de prise en charge ne couvre pas la totalité des honoraires, un complément peut être facturé par le cabinet.</div>
+  </div>
+</section>
+
+<section class="faq">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Questions fréquentes</span>
+      <h2>Avant de prendre rendez-vous</h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item">
+        <h4>Comment se déroule le premier rendez-vous ?</h4>
+        <p>Le premier échange permet de présenter votre situation, de répondre à vos questions et de définir ensemble la meilleure stratégie à adopter, contentieuse ou amiable.</p>
+      </div>
+      <div class="faq-item">
+        <h4>Comment sont fixés les honoraires ?</h4>
+        <p>Les honoraires sont déterminés en accord avec vous et formalisés dans une convention d'honoraires, dans le respect du cadre déontologique de la profession.</p>
+      </div>
+      <div class="faq-item">
+        <h4>Puis-je bénéficier de l'aide juridictionnelle ?</h4>
+        <p>Selon vos ressources et la nature de votre litige, vous pouvez être éligible à l'aide juridictionnelle. Le cabinet vous accompagne dans cette évaluation.</p>
+      </div>
+      <div class="faq-item">
+        <h4>Quelle est la différence entre médiation judiciaire et conventionnelle ?</h4>
+        <p>La médiation judiciaire est ordonnée par un juge dans le cadre d'une procédure en cours ; la médiation conventionnelle est engagée librement par les parties, en dehors de tout contentieux.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="articles" class="articles">
+  <div class="container">
+    <div class="section-head center">
+      <span class="eyebrow">Regards juridiques</span>
+      <h2>Actualités &amp; publications</h2>
+      <p>Une rubrique à alimenter régulièrement pour partager des points d'actualité juridique et renforcer votre visibilité.</p>
+    </div>
+    <div class="articles-grid">
+      <div class="article-card">
+        <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?q=80&w=600&auto=format&fit=crop" alt="Article">
+        <div class="body">
+          <span class="date">À paraître</span>
+          <h4>Divorce par consentement mutuel : ce qu'il faut savoir</h4>
+          <p>Article à venir — présentation de la procédure et de ses étapes.</p>
+        </div>
+      </div>
+      <div class="article-card">
+        <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?q=80&w=600&auto=format&fit=crop" alt="Article">
+        <div class="body">
+          <span class="date">À paraître</span>
+          <h4>Rupture du contrat de travail : les points de vigilance</h4>
+          <p>Article à venir — conseils pratiques pour salariés et employeurs.</p>
+        </div>
+      </div>
+      <div class="article-card">
+        <img src="https://images.unsplash.com/photo-1521791055366-0d553872125f?q=80&w=600&auto=format&fit=crop" alt="Article">
+        <div class="body">
+          <span class="date">À paraître</span>
+          <h4>La médiation, une alternative concrète au procès</h4>
+          <p>Article à venir — présentation du déroulé d'une médiation.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="contact">
+  <div class="container contact-grid">
+    <div class="contact-info">
+      <span class="eyebrow" style="color:var(--gold-light)">Contact</span>
+      <h2>Prenons rendez-vous</h2>
+      <p>Le cabinet vous reçoit sur rendez-vous. N'hésitez pas à m'exposer votre situation via le formulaire ci-contre ; je reviendrai vers vous dans les meilleurs délais.</p>
+      <div class="contact-detail"><div><strong>Adresse</strong>37 bis, rue du 13 octobre 1918 — Bât. B<br>02000 Laon</div></div>
+      <div class="contact-detail"><div><strong>Barreau</strong>Barreau de Laon</div></div>
+      <div class="contact-detail"><div><strong>Rendez-vous</strong>Sur rendez-vous, au cabinet</div></div>
+      <div class="map-placeholder">Carte à intégrer (Google Maps)</div>
+    </div>
+    <div class="form-card">
+      <div class="form-row">
+        <div class="form-group"><label>Nom</label><input type="text" placeholder="Votre nom"></div>
+        <div class="form-group"><label>Prénom</label><input type="text" placeholder="Votre prénom"></div>
+      </div>
+      <div class="form-row">
+        <div class="form-group"><label>Email</label><input type="email" placeholder="vous@exemple.fr"></div>
+        <div class="form-group"><label>Téléphone</label><input type="tel" placeholder="06 00 00 00 00"></div>
+      </div>
+      <div class="form-group" style="margin-bottom:18px;">
+        <label>Objet de la demande</label>
+        <select>
+          <option>Droit pénal</option>
+          <option>Droit de la famille</option>
+          <option>Droit du travail</option>
+          <option>Médiation</option>
+          <option>Autre demande</option>
+        </select>
+      </div>
+      <div class="form-group full" style="margin-bottom:18px;">
+        <label>Message</label>
+        <textarea placeholder="Décrivez brièvement votre situation..."></textarea>
+      </div>
+      <div class="rgpd">
+        <input type="checkbox" style="margin-top:3px;">
+        <span>J'accepte que les informations saisies soient utilisées pour traiter ma demande, conformément à la politique de confidentialité du cabinet.</span>
+      </div>
+      <button class="form-submit">Envoyer ma demande</button>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h4>Maître Patrick Tacet</h4>
+        <a href="#presentation">Qui suis-je</a>
+        <a href="#domaines">Domaines d'activité</a>
+        <a href="#mediation">Médiation</a>
+      </div>
+      <div class="footer-col">
+        <h4>Informations</h4>
+        <a href="#honoraires">Honoraires</a>
+        <a href="#articles">Actualités</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <div class="footer-col">
+        <h4>Cabinet</h4>
+        <a href="#">37 bis, rue du 13 octobre 1918</a>
+        <a href="#">Bât. B — 02000 Laon</a>
+        <a href="#">Barreau de Laon</a>
+      </div>
+      <div class="footer-col">
+        <h4>Légal</h4>
+        <a href="#">Mentions légales</a>
+        <a href="#">Politique de confidentialité</a>
+        <a href="#">Gestion des cookies</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Patrick Tacet — Avocat au Barreau de Laon. Tous droits réservés.</span>
+      <span>Maquette de travail — contenus et photos à valider</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
