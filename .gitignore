@@ -1,0 +1,23 @@
+# Dépendances
+node_modules/
+
+# Variables d'environnement (ne jamais committer de vraies valeurs)
+.env
+.env.local
+.env.*.local
+
+# Fichiers Vercel
+.vercel
+
+# Fichiers système
+.DS_Store
+Thumbs.db
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Éditeurs
+.vscode/
+.idea/

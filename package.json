@@ -1,0 +1,10 @@
+{
+  "name": "patricktacet",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Site vitrine de Maître Patrick Tacet — Avocat, Médiateur, Enseignant (Barreau de Laon)",
+  "scripts": {
+    "dev": "npx serve . -l 3000",
+    "start": "npx serve . -l 3000"
+  }
+}

@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mentions légales — Maître Patrick Tacet, Avocat au Barreau de Laon</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#1c2e42;
+    --navy-dark:#12202f;
+    --gold:#a9824c;
+    --gold-light:#c9a877;
+    --cream:#faf7f2;
+    --paper:#f3efe7;
+    --text:#2c2c2c;
+    --text-light:#5a5f66;
+    --border:#e2ddd2;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Inter',sans-serif;
+    color:var(--text);
+    background:var(--cream);
+    line-height:1.65;
+    font-weight:300;
+  }
+  h1,h2,h3,h4{font-family:'Playfair Display',serif;font-weight:600;color:var(--navy);}
+  a{text-decoration:none;color:inherit;}
+  .container{max-width:900px;margin:0 auto;padding:0 24px;}
+
+  header{
+    position:fixed;top:0;left:0;right:0;z-index:100;
+    background:rgba(28,46,66,.97);backdrop-filter:blur(6px);
+    border-bottom:1px solid rgba(255,255,255,.08);
+  }
+  nav{display:flex;align-items:center;justify-content:space-between;padding:18px 24px;max-width:1140px;margin:0 auto;}
+  .logo{font-family:'Playfair Display',serif;color:#fff;font-size:1.15rem;letter-spacing:.02em;}
+  .logo span{color:var(--gold-light);}
+  .back-link{color:#e8e6e0;font-size:.82rem;letter-spacing:.04em;text-transform:uppercase;font-weight:400;}
+  .back-link:hover{color:var(--gold-light);}
+
+  .legal-hero{
+    background:var(--navy);color:#fff;padding:150px 0 60px;
+  }
+  .legal-hero .eyebrow{
+    font-size:.75rem;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--gold-light);font-weight:600;margin-bottom:14px;display:block;
+  }
+  .legal-hero h1{color:#fff;font-size:clamp(1.8rem,3.5vw,2.6rem);}
+
+  main{padding:64px 0 100px;}
+  .legal-block{margin-bottom:44px;}
+  .legal-block h2{font-size:1.25rem;margin-bottom:16px;padding-bottom:10px;border-bottom:1px solid var(--border);}
+  .legal-block p{color:#3b3f45;font-size:.96rem;margin-bottom:14px;}
+  .legal-block ul{color:#3b3f45;font-size:.96rem;margin:0 0 14px 20px;}
+  .legal-block li{margin-bottom:6px;}
+  .legal-block strong{color:var(--navy);}
+  .note-todo{
+    background:var(--paper);border-left:3px solid var(--gold);padding:14px 18px;
+    font-size:.85rem;color:var(--text-light);border-radius:2px;margin-top:8px;
+  }
+
+  footer{background:var(--navy-dark);color:#9aa1a8;padding:40px 0 26px;}
+  .footer-bottom{font-size:.8rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+  .footer-links a{color:#9aa1a8;margin-left:20px;font-size:.8rem;}
+  .footer-links a:hover{color:var(--gold-light);}
+
+  @media (max-width:600px){
+    .footer-bottom{flex-direction:column;}
+    .footer-links a{margin:0 14px 0 0;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <nav>
+    <a href="index.html" class="logo">Patrick <span>Tacet</span></a>
+    <a href="index.html" class="back-link">← Retour au site</a>
+  </nav>
+</header>
+
+<section class="legal-hero">
+  <div class="container">
+    <span class="eyebrow">Informations légales</span>
+    <h1>Mentions légales</h1>
+  </div>
+</section>
+
+<main>
+  <div class="container">
+
+    <div class="legal-block">
+      <h2>1. Éditeur du site</h2>
+      <p>Le présent site est édité par :</p>
+      <ul>
+        <li><strong>Nom :</strong> Patrick TACET</li>
+        <li><strong>Qualité :</strong> Avocat indépendant — Cabinet TACET</li>
+        <li><strong>Barreau :</strong> Barreau de Laon</li>
+        <li><strong>Numéro au tableau de l'Ordre :</strong> [à compléter par le cabinet]</li>
+        <li><strong>SIRET :</strong> 499 902 658 00040</li>
+        <li><strong>Adresse du cabinet :</strong> 37 bis rue du 13 octobre 1918, Bâtiment B, 02000 Laon</li>
+        <li><strong>Téléphone :</strong> 09 53 32 03 10</li>
+        <li><strong>E-mail :</strong> patrick.tacet@avocat.fr</li>
+      </ul>
+      <div class="note-todo">Le numéro au tableau de l'Ordre des avocats n'a pas été communiqué et doit être complété par le cabinet avant mise en ligne définitive.</div>
+    </div>
+
+    <div class="legal-block">
+      <h2>2. Directeur de la publication</h2>
+      <p>Le directeur de la publication du site est Maître Patrick TACET, avocat au Barreau de Laon.</p>
+    </div>
+
+    <div class="legal-block">
+      <h2>3. Hébergement</h2>
+      <p>Le site est hébergé par :</p>
+      <ul>
+        <li><strong>Vercel Inc.</strong></li>
+        <li>340 S Lemon Ave #4133, Walnut, CA 91789, États-Unis</li>
+        <li>Site web : <a href="https://vercel.com" style="color:var(--gold);text-decoration:underline;">vercel.com</a></li>
+      </ul>
+    </div>
+
+    <div class="legal-block">
+      <h2>4. Propriété intellectuelle</h2>
+      <p>L'ensemble des contenus présents sur ce site (textes, photographies, logo, mise en page) est protégé au titre du droit d'auteur et reste la propriété exclusive de Maître Patrick TACET, sauf mention contraire. Toute reproduction, représentation, modification ou exploitation, totale ou partielle, de ces contenus, sans autorisation préalable, est interdite.</p>
+    </div>
+
+    <div class="legal-block">
+      <h2>5. Déontologie professionnelle</h2>
+      <p>Maître Patrick TACET exerce la profession d'avocat conformément au Règlement Intérieur National (RIN) de la profession d'avocat et aux règles déontologiques applicables, sous le contrôle de l'Ordre des avocats du Barreau de Laon.</p>
+    </div>
+
+    <div class="legal-block">
+      <h2>6. Responsabilité</h2>
+      <p>Les informations diffusées sur ce site le sont à titre général et informatif. Elles ne sauraient constituer un conseil juridique personnalisé et ne dispensent pas d'un rendez-vous avec l'avocat pour l'étude particulière de chaque situation. Le cabinet ne saurait être tenu responsable des éventuelles erreurs, omissions ou de l'utilisation qui pourrait être faite de ces informations.</p>
+    </div>
+
+    <div class="legal-block">
+      <h2>7. Liens hypertextes</h2>
+      <p>Le site peut contenir des liens vers d'autres sites. Le cabinet n'exerce aucun contrôle sur ces sites tiers et décline toute responsabilité quant à leur contenu.</p>
+    </div>
+
+    <div class="legal-block">
+      <h2>8. Droit applicable</h2>
+      <p>Les présentes mentions légales sont soumises au droit français. En cas de litige, et à défaut de résolution amiable, les tribunaux français seront seuls compétents.</p>
+    </div>
+
+    <div class="legal-block">
+      <h2>9. Politique de confidentialité</h2>
+      <p>Pour connaître le détail du traitement de vos données personnelles, veuillez consulter la <a href="politique-confidentialite.html" style="color:var(--gold);text-decoration:underline;">politique de confidentialité</a> du cabinet.</p>
+    </div>
+
+  </div>
+</main>
+
+<footer>
+  <div class="container footer-bottom">
+    <span>© 2026 Patrick Tacet — Avocat au Barreau de Laon. Tous droits réservés.</span>
+    <span class="footer-links">
+      <a href="index.html">Accueil</a>
+      <a href="politique-confidentialite.html">Politique de confidentialité</a>
+    </span>
+  </div>
+</footer>
+
+</body>
+</html>
