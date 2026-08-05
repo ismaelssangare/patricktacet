@@ -232,6 +232,12 @@
   @media (max-width:900px){
     .nav-links{display:none;}
     .burger{display:flex;}
+    .nav-links.open{
+      display:flex;flex-direction:column;position:absolute;top:100%;left:0;right:0;
+      background:var(--navy-dark);padding:22px 24px 28px;gap:20px;
+      border-top:1px solid rgba(255,255,255,.08);
+    }
+    .nav-links.open a{font-size:.95rem;}
     .hero-grid{grid-template-columns:1fr;}
     .hero-portrait{max-width:320px;margin:0 auto;}
     .presentation-grid, .roles-grid, .domaines-grid, .process-grid, .honoraires-grid, .articles-grid, .contact-grid{
@@ -251,7 +257,7 @@
 <header>
   <nav>
     <a href="#accueil" class="logo"><img src="images/logo-tacet.png" alt="Tacet Avocat — Conseil, Défense, Médiation" style="height:72px;width:auto;display:block;"></a>
-    <ul class="nav-links">
+    <ul class="nav-links" id="navLinks">
       <li><a href="#presentation">Présentation</a></li>
       <li><a href="#domaines">Domaines d'activité</a></li>
       <li><a href="#mediation">Médiation</a></li>
@@ -260,7 +266,7 @@
       <li><a href="#contact">Contact</a></li>
     </ul>
     <a href="#contact" class="btn btn-outline nav-cta">Prendre rendez-vous</a>
-    <button class="burger" aria-label="menu"><span></span><span></span><span></span></button>
+    <button class="burger" id="burgerBtn" aria-label="menu" aria-expanded="false"><span></span><span></span><span></span></button>
   </nav>
 </header>
 
@@ -598,6 +604,24 @@
   </div>
 </footer>
 
+<script>
+(function(){
+  var burgerBtn = document.getElementById('burgerBtn');
+  var navLinks = document.getElementById('navLinks');
+  if(burgerBtn && navLinks){
+    burgerBtn.addEventListener('click', function(){
+      var isOpen = navLinks.classList.toggle('open');
+      burgerBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    });
+    navLinks.querySelectorAll('a').forEach(function(link){
+      link.addEventListener('click', function(){
+        navLinks.classList.remove('open');
+        burgerBtn.setAttribute('aria-expanded', 'false');
+      });
+    });
+  }
+})();
+</script>
 <script>
 (function(){
   var form = document.getElementById('contactForm');
