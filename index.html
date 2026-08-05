@@ -525,18 +525,18 @@
         <img src="images/localisation-cabinet.png" alt="Localisation du cabinet — 37 bis rue du 13 octobre 1918, 02000 Laon">
       </div>
     </div>
-    <div class="form-card">
+    <form class="form-card" id="contactForm">
       <div class="form-row">
-        <div class="form-group"><label>Nom</label><input type="text" placeholder="Votre nom"></div>
-        <div class="form-group"><label>Prénom</label><input type="text" placeholder="Votre prénom"></div>
+        <div class="form-group"><label>Nom</label><input type="text" id="cf-nom" placeholder="Votre nom" required></div>
+        <div class="form-group"><label>Prénom</label><input type="text" id="cf-prenom" placeholder="Votre prénom" required></div>
       </div>
       <div class="form-row">
-        <div class="form-group"><label>Email</label><input type="email" placeholder="vous@exemple.fr"></div>
-        <div class="form-group"><label>Téléphone</label><input type="tel" placeholder="06 00 00 00 00"></div>
+        <div class="form-group"><label>Email</label><input type="email" id="cf-email" placeholder="vous@exemple.fr" required></div>
+        <div class="form-group"><label>Téléphone</label><input type="tel" id="cf-telephone" placeholder="06 00 00 00 00"></div>
       </div>
       <div class="form-group" style="margin-bottom:18px;">
         <label>Objet de la demande</label>
-        <select>
+        <select id="cf-objet">
           <option>Droit pénal</option>
           <option>Droit de la famille</option>
           <option>Droit du travail</option>
@@ -546,14 +546,15 @@
       </div>
       <div class="form-group full" style="margin-bottom:18px;">
         <label>Message</label>
-        <textarea placeholder="Décrivez brièvement votre situation..."></textarea>
+        <textarea id="cf-message" placeholder="Décrivez brièvement votre situation..." required></textarea>
       </div>
       <div class="rgpd">
-        <input type="checkbox" style="margin-top:3px;">
+        <input type="checkbox" id="cf-rgpd" style="margin-top:3px;" required>
         <span>J'accepte que les informations saisies soient utilisées pour traiter ma demande, conformément à la politique de confidentialité du cabinet.</span>
       </div>
-      <button class="form-submit">Envoyer ma demande</button>
-    </div>
+      <p id="cf-status" style="font-size:.85rem;margin-bottom:14px;display:none;"></p>
+      <button type="submit" class="form-submit">Envoyer ma demande</button>
+    </form>
   </div>
 </section>
 
@@ -597,5 +598,72 @@
   </div>
 </footer>
 
+<script>
+(function(){
+  var form = document.getElementById('contactForm');
+  if(!form) return;
+  var status = document.getElementById('cf-status');
+  var CALLMEBOT_PHONE = '33651466007';
+  var CALLMEBOT_APIKEY = '5253727';
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+
+    var nom = document.getElementById('cf-nom').value.trim();
+    var prenom = document.getElementById('cf-prenom').value.trim();
+    var email = document.getElementById('cf-email').value.trim();
+    var telephone = document.getElementById('cf-telephone').value.trim();
+    var objet = document.getElementById('cf-objet').value;
+    var message = document.getElementById('cf-message').value.trim();
+    var rgpd = document.getElementById('cf-rgpd').checked;
+
+    if(!nom || !prenom || !email || !message){
+      status.style.display = 'block';
+      status.style.color = '#b3261e';
+      status.textContent = 'Merci de remplir tous les champs obligatoires.';
+      return;
+    }
+    if(!rgpd){
+      status.style.display = 'block';
+      status.style.color = '#b3261e';
+      status.textContent = 'Merci de cocher la case de consentement pour continuer.';
+      return;
+    }
+
+    var text = 'Nouvelle demande via le site :\n'
+      + 'Nom : ' + nom + '\n'
+      + 'Prénom : ' + prenom + '\n'
+      + 'Email : ' + email + '\n'
+      + 'Téléphone : ' + (telephone || 'Non renseigné') + '\n'
+      + 'Objet : ' + objet + '\n'
+      + 'Message : ' + message;
+
+    var url = 'https://api.callmebot.com/whatsapp.php?phone=' + CALLMEBOT_PHONE
+      + '&text=' + encodeURIComponent(text)
+      + '&apikey=' + CALLMEBOT_APIKEY;
+
+    var submitBtn = form.querySelector('.form-submit');
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Envoi en cours...';
+
+    fetch(url, { mode: 'no-cors' })
+      .then(function(){
+        status.style.display = 'block';
+        status.style.color = '#2e7d32';
+        status.textContent = 'Merci, votre demande a bien été envoyée. Nous revenons vers vous rapidement.';
+        form.reset();
+      })
+      .catch(function(){
+        status.style.display = 'block';
+        status.style.color = '#b3261e';
+        status.textContent = "Une erreur est survenue lors de l'envoi. Merci de réessayer ou de nous contacter par téléphone.";
+      })
+      .finally(function(){
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Envoyer ma demande';
+      });
+  });
+})();
+</script>
 </body>
 </html>
